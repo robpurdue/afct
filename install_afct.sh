@@ -15,28 +15,8 @@ npm install -g azure-functions-core-tools@4 --unsafe-perm true
 # Update the .bashrc file to add the command to install AFCT
 echo "alias install_afct='~/clouddrive/afct/install_afct.sh'" >> ~/.bashrc
 
-# Check to see the .bashrc contains instructions for setting up a Python virtual environment 
-bashrc_content=$(cat << 'EOF'
-# Check if the virtual environment directory exists
-if [ ! -d "$HOME/cf_env" ]; then
-    # Create the virtual environment if it doesn't exist
-    python3 -m venv $HOME/cf_env
-    echo -e "\033[1;34mVirtual environment 'cf_env' created\033[0m"
-fi
-
-# Activate the virtual environment
-source $HOME/cf_env/bin/activate
-EOF
-)
-
 # Update the .bashrc file to add the command to start the `cf_env` Python virtual environment
-echo "alias start_venv='source /tmp/cf_env/bin/activate'" >> ~/.bashrc
-
-# Add the logic to .bashrc if it's not already present
-if ! grep -Fxq "$bashrc_content" ~/.bashrc; then
-    echo "$bashrc_content" >> ~/.bashrc
-    #echo -e "\033[1;34mLogic added to .bashrc\033[0m"
-fi
+echo "alias start_venv='python -m venv ~/tmp/cf_env;source ~/tmp/cf_env/bin/activate'" >> ~/.bashrc
 
 # Add instructions to students in the .bashrc so they run on startup
 # ANSI color codes
