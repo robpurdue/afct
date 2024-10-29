@@ -29,6 +29,9 @@ source $HOME/cf_env/bin/activate
 EOF
 )
 
+# Update the .bashrc file to add the command to start the `cf_env` Python virtual environment
+echo "alias start_venv='source /tmp/cf_env/bin/activate" >> ~/.bashrc
+
 # Add the logic to .bashrc if it's not already present
 if ! grep -Fxq "$bashrc_content" ~/.bashrc; then
     echo "$bashrc_content" >> ~/.bashrc
