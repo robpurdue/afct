@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Update the .bashrc file to add the command to install AFCT
 echo "alias install_afct='~/clouddrive/afct/install_afct.sh'" >> ~/.bashrc
 
