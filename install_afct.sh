@@ -7,7 +7,14 @@ mkdir -p ~/.npm-global
 npm config set prefix '~/.npm-global'
 
 # Add the new directory to your system PATH
-echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
+# Define the line to be added
+line_to_add='export PATH=~/.npm-global/bin:$PATH'
+
+# Check if the line is already in .bashrc
+if ! grep -Fxq "$line_to_add" ~/.bashrc; then
+    # If the line is not found, add it to .bashrc
+    echo "$line_to_add" >> ~/.bashrc
+fi
 
 # Install Azure Functions Core Tools globally
 npm install -g azure-functions-core-tools@4 --unsafe-perm true
