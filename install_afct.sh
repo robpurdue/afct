@@ -11,3 +11,5 @@ echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
 
 # Install Azure Functions Core Tools globally
 npm install -g azure-functions-core-tools@4 --unsafe-perm true
+
+source ~/.bashrc
